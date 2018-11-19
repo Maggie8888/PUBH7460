@@ -1,8 +1,12 @@
 #A demonstration of functions from the GPPack
+library(Rcpp)
+library(RcppArmadillo)
+library(RcppEigen)
 library(FastGP)
+library(ellipse)
+library(eigeninv)
 library(mvtnorm)
 library(MASS)
-
 
 N <- 200
 sigma <- 1 #variance parameter in the covariance function
@@ -46,4 +50,6 @@ plot(colMeans(mcmcSamples), type="l")
 points(t, type="l", lwd=3, col="red")
 points(colMeans(mcmcSamples) + 2* apply(mcmcSamples, 2, sd), type="l", lty="dashed")
 points(colMeans(mcmcSamples) - 2* apply(mcmcSamples, 2, sd), type="l", lty="dashed")
+
+
 
